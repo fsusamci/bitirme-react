@@ -9,6 +9,7 @@
     "react-dom": "^16.4.0",
     "react-plotly.js": "^2.2.0",
     "react-scripts": "1.1.4",
+    "react-toastify": "^4.0.2",
     "react-toastr": "^3.0.0"
   },
   "scripts": {

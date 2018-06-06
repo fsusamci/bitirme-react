@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
 import './App.css';
 import Plot from 'react-plotly.js';
-import { ToastContainer } from "react-toastr";
+import Graph from './Graph';
 
 class App extends Component {
+
+  onItemSelect = (data) => {
+    let point = { x: 0, y: 0};
+    let pts = '';
+      for(var i=0; i < data.points.length; i++){
+        point['x'] = data.points[i].x;
+        point['y'] = data.points[i].y;
+
+        pts = 'x = '+data.points[i].x +'\ny = '+
+              data.points[i].y + '\n\n';
+      }
+    alert(point['x']+","+point['y']+" clicked.");
+  }
+
   render() {
     return (
       <div className="App">
-        <Plot
-          data={[
-            {
-              x: [1, 2, 3],
-              y: [2, 6, 3],
-              type: 'scatter',
-              mode: 'lines+points',
-              marker: {color: 'red'},
-            },
-            {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
-          ]}
-          layout={ {width: 500, height: 500, title: 'A Fancy Plot'} }
-          onClick={data => {
-            var pts = '';
-              for(var i=0; i < data.points.length; i++){
-                  pts = 'x = '+data.points[i].x +'\ny = '+
-                      data.points[i].y.toPrecision(4) + '\n\n';
-              }
-             alert('Closest point clicked:\n\n'+pts);
-            }
-          }
-        />
+        <div class="row">
+          <div class="col-sm">
+            <Graph onItemSelect={this.onItemSelect}/>
+          </div>
+          <div class="col-sm">
+            <Graph onItemSelect={this.onItemSelect}/>
+          </div>
+        </div>
       </div>
     );
   }
