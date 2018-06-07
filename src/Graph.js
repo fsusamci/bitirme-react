@@ -6,20 +6,20 @@ const Graph = ({onItemSelect}) => {
     <div className="card">
       <div className="card-body">
         <div class="alert alert-success" role="alert">
-          3 points selected
+          3 nokta seçildi (Burası fonksiyonel değil)
         </div>
         <Plot
           data={[
             {
               x: [1, 2, 3],
               y: [2, 6, 3],
-              type: 'scatter',
-              mode: 'lines+points',
+              z: [4, 5, 2],
+              type: 'scatter3d',
+              mode: 'markers',
               marker: {color: 'red'},
-            },
-            {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
+            }
           ]}
-          layout={ {width: 500, height: 500, title: 'A Fancy Plot'} }
+          layout={ {width: 500, height: 500, title: 'Lazer Tarama Verisi'} }
           onClick={(data) => onItemSelect(data)}
         />
       </div>
